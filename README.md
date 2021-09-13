@@ -119,6 +119,15 @@ mkdir nest-simulator-3.0-build
 cd nest-simulator-3.0-build
 ```
 
+3. Make and make install NEST
+```
+cmake -DCMAKE_INSTALL_PREFIX:PATH=$HOME/opt/nest/3.0 ../nest-simulator-3.0
+make
+make install
+make installcheck
+```
+
+The commands in step 3 will build NEST with the default build parameters you may set other configuration accordingly to your needs (see [here](https://nest-simulator.readthedocs.io/en/stable/installation/cmake_options.html)), but for the present code the default parameter are enough.
 
 ### [ReScience C](https://rescience.github.io/) article template
 
