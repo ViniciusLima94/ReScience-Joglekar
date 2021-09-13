@@ -106,20 +106,20 @@ To date the current version of NEST that can be installed via Ananconda is the v
 
 Next, follow the steps bellow:
 
-1. Decompress the tar file
+#### 1. Decompress the tar file
 ```
 tar -xf nest-simulator-3.0.tar.gz 
 ```
 
 This will create the folder **nest-simulator-3.0** with the installation files. 
 
-2. Create a build directory and change to it
+#### 2. Create a build directory and change to it
 ```
 mkdir nest-simulator-3.0-build
 cd nest-simulator-3.0-build
 ```
 
-3. Make and make install NEST
+#### 3. Make and make install NEST
 ```
 cmake -DCMAKE_INSTALL_PREFIX:PATH=$HOME/opt/nest/3.0 ../nest-simulator-3.0
 make
@@ -129,14 +129,14 @@ make installcheck
 
 The commands in step 3 will build NEST with the default build parameters you may set other configuration accordingly to your needs (see [here](https://nest-simulator.readthedocs.io/en/stable/installation/cmake_options.html)), but for the present code the default parameters are enough.
 
-4. Add NEST to the Path and Pythonpath 
+#### 4. Add NEST to the Path and Pythonpath 
 
-4.1. First enter the bashrc file with your preferred text editor
+##### 4.1. First enter the bashrc file with your preferred text editor
 ```
 vim ~/.bashrc
 ```
 
-4.2. The add the following two lines at the end of the file (you might need to access it as super user)
+##### 4.2. The add the following two lines at the end of the file (you might need to access it as super user)
 ```
 export PATH="$HOME/opt/nest/3.0:$PATH"
 export PYTHONPATH="$HOME/opt/nest/3.0/lib/python3.8/site-packages${PYTHONPATH:+:$PYTHONPATH}
