@@ -22,7 +22,7 @@ Joglekar, Madhura R., et al. "Inter-areal balanced amplification enhances signal
 
 **NEST:** 3.0.0
 
-The machine used to run the codes related to this replication was equiped with a processor **Intel Xeon Gold 6320** 2.1GHz with 20C/20T. The rate models were simulared using a single-core while the spiking-neuron model was simulated using 20C.
+The machine used to run the codes related to this replication was equiped with a processor **Intel Xeon Gold 6320** 2.1GHz with 20C/20T and 125GB ram. The rate models were simulared using a single-core while the spiking-neuron model was simulated using 20C.
 
 The version of the packages for scientific computing in python might be changed without any downside, however for **NEST** should be version 3.0 (or above).
 
