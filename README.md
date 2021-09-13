@@ -181,6 +181,20 @@ The code repository contain the following files:
 
 The respository also contains a subdirectory **interareal** with the data (e.g., the empirical connectivity matrices) necessary to built the models. All figures are saved in the subdirectory **figures**.
 
+## Running the scripts
+
+To generate the results shown in the replication one ought to run the **main.py** script specifying the line arguments thar corresponds to the "protocol" and the number of threads to use:
+
+```
+ipython main.py PROTOCOL N_THREADS
+```
+
+The outcome of each protocol is detailed bellow:
+
+* **protocol 0:** Simulate the two population rate model and generate figure 1 from the original paper (figure 2 in the replication paper).
+* **protocol 1:** Simulate the 29 population rate model and generate figure 3 from the original paper (figure 3 in the replication paper).
+* **protocol 2:** Simulate the spiking-neuron model  for the conditions weak/strong GBA synchronous/assyinchronous and generate figures 5  and 6 from the original paper (figure 4 and 5 in the replication paper).
+* **protocol 3:** Simulate the spiking-neuron model in the absence of external stimuli applied to the V1 population to assure that the network average frequency rate is in the range specified in the original paper. 
 
 ### [ReScience C](https://rescience.github.io/) article template
 
