@@ -27,7 +27,6 @@ def simulate(lnt = 1, simtime = 600.0, dt = 0.2, transient = 0, tau = 20.0, Wee 
                                                  'sigma': 0.0,
                                                  'linear_summation': True})
 
-
     #########################################################################################
     # Neuron parameters
     #########################################################################################
@@ -36,10 +35,6 @@ def simulate(lnt = 1, simtime = 600.0, dt = 0.2, transient = 0, tau = 20.0, Wee 
     #########################################################################################
     # Synapsis parameters
     #########################################################################################
-    #if LBA == 'strong':
-    #   Wee, Wei = 6.00, 6.70
-    #elif LBA == 'weak':
-    #   Wee, Wei = 4.45, 4.70
     Wie, Wii = 4.29, 4.71
 
     # Excitatory population
@@ -54,15 +49,6 @@ def simulate(lnt = 1, simtime = 600.0, dt = 0.2, transient = 0, tau = 20.0, Wee 
     #  nest.SetStatus(multi, {"record_from":["rate"], 'withgid':True, 'interval':dt})
     nest.SetStatus(multi, {"record_from":["rate"], 'interval':dt})
     nest.Connect(multi, E)
-
-    #########################################################################################
-    # Initial input to set E0 = 1
-    #########################################################################################
-    #Iext = nest.Create('step_rate_generator')
-    #nest.SetStatus(Iext, {'amplitude_times': [999., 1000.], 'amplitude_values': [tau+1.0 , 0.]}) 
-    #conn = {'rule': 'one_to_one'}  
-    #syn_e  = {'weight': 1.0, 'delay': 0.1,  'model': 'rate_connection_delayed'}
-    #nest.Connect(Iext, E, conn, syn_e)
 
     #########################################################################################
     # Connecting populations
@@ -88,4 +74,3 @@ def simulate(lnt = 1, simtime = 600.0, dt = 0.2, transient = 0, tau = 20.0, Wee 
     rates = nest.GetStatus(multi)[0]['events']['rate']
 
     return times[int(transient/dt):]-times[int(transient/dt):].min(), rates[int(transient/dt):]
-

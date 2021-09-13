@@ -139,26 +139,22 @@ if p == 2:
     # Weak GBA / Asynchronous
     #########################################################################################
     i_aw, _, t_aw, _, maxf_aw,_,_ = fig5_6.simulate(lnt = lnt, seed = 10, simtime = simtime, reg = 'async', gba = 'weak-gba', transient = 0, dt = dt)
-    #plot_figures.plot_raster(t_aw, i_aw, 'async', simtime, 'weak_gba_async.png')
 
     #########################################################################################
     # Strong GBA / Asynchronous
     #########################################################################################
     i_as, _, t_as, _, maxf_as,_,_ = fig5_6.simulate(lnt = lnt, seed = 10, simtime = simtime, reg = 'async', gba = 'strong-gba', transient = 0, dt = dt)
-    #plot_figures.plot_raster(t_as, i_as, 'async', simtime,  'strong_gba_async.png')
     plot_figures.fig5_6(t_aw, i_aw, t_as, i_as, maxf_aw, maxf_as, 'async', simtime, 'figures/fig5.png')
 
     #########################################################################################
     # Weak GBA / Synchronous
     #########################################################################################
     i_sw, _, t_sw, _, maxf_sw,_,_ = fig5_6.simulate(lnt = lnt, seed = 10, simtime = simtime, reg = 'sync', gba = 'weak-gba', transient = 0, dt = dt)
-    #plot_figures.plot_raster(t_sw, i_sw, 'sync', simtime,  'weak_gba_sync.png')
 
     #########################################################################################
     # Strong GBA / Synchronous
     #########################################################################################
     i_ss, _, t_ss, _, maxf_ss,_,_ = fig5_6.simulate(lnt = lnt, seed = 100, simtime = simtime, reg = 'sync', gba = 'strong-gba', transient = 0, dt = dt)
-    #plot_figures.plot_raster(t_ss, i_ss, 'sync', simtime,  'strong_gba_sync.png')
     plot_figures.fig5_6(t_sw, i_sw, t_ss, i_ss, maxf_sw, maxf_ss, 'sync', simtime, 'figures/fig6.png')
 
     #########################################################################################

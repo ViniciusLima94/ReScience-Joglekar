@@ -12,23 +12,6 @@ import setParams
 area_names = ['V1','V2','V4','DP','MT','8m','5','8l','TEO','2','F1','STPc','7A','46d','10','9/46v',\
         '9/46d','F5','TEpd','PBr','7m','7B','F2','STPi','PROm','F7','8B','STPr','24c']
 
-# Files from https://github.com/xjwanglab/JoglekarEtAl2018_Neuron
-#hierarchy values file 
-'''
-hierVals = scipy.io.loadmat('interareal/hierValspython.mat')
-hierValsnew = hierVals['hierVals'][:]
-netwParams_hier=hierValsnew/max(hierValsnew) # Hierarchy normalized. 
-
-#fln values file 
-flnMatp = scipy.io.loadmat('interareal/efelenMatpython.mat')
-flnMat=flnMatp['flnMatpython'][:][:]         # FLN values..Cij is strength from j to i 
-M = (flnMat > 0).astype(int)
-
-distMatp  = scipy.io.loadmat('interareal/subgraphWiring29.mat')
-distMat   = distMatp['wiring'][:][:]         # Distances between areas values..
-delayMat  = distMat / 3.5
-'''
-# {FLN': flnMat, 'Distances': distMat, 'Hierarchy': netwParams_hier}
 data            = np.load('interareal/markov2014.npy', allow_pickle=True).item()
 netwParams_hier = data['Hierarchy']
 flnMat          = data['FLN']
@@ -99,12 +82,6 @@ def simulate(lnt = 1, seed = 100, simtime = 1000.0, reg = 'async', gba = 'weak-g
     # Creating spike detectors
     spikes_e = nest.Create('spike_recorder')
     spikes_i = nest.Create('spike_recorder')
-    #  nest.SetStatus(spikes_e, [{'withtime': True,
-    #                             'withgid': True,
-    #                             'to_file': False}])
-    #  nest.SetStatus(spikes_i, [{'withtime': True,
-    #                             'withgid': True,
-    #                             'to_file': False}])
 
     #########################################################################################
     # Create white noise devices
@@ -215,13 +192,6 @@ def simulate(lnt = 1, seed = 100, simtime = 1000.0, reg = 'async', gba = 'weak-g
     # calculate mean firing rate in spikes per second
     rate_ex = np.sum(nest.GetStatus(spikes_e)[0]['events']['times']>=transient)/(simtime-transient)/(NE*Nareas)*1e3
     rate_in = np.sum(nest.GetStatus(spikes_i)[0]['events']['times']>=transient)/(simtime-transient)/(NI*Nareas)*1e3
-
-
-    #print('Rex = ' + str(rate_ex) + ' Hz')
-    #print('Rin = ' + str(rate_in) + ' Hz')
-
-    #print('Mean excitatory firing rate: {} Hz'.format(rate_ex))
-    #print('Mean inhibitory firing rate: {} Hz'.format(rate_in))
     
     times_ex = nest.GetStatus(spikes_e)[0]['events']['times']
     times_in = nest.GetStatus(spikes_i)[0]['events']['times']
@@ -248,5 +218,3 @@ def simulate(lnt = 1, seed = 100, simtime = 1000.0, reg = 'async', gba = 'weak-g
         max_fr.append(c.max())
 
     return index_ex, index_in, times_ex, times_in, max_fr, rate_ex, rate_in
-
-

@@ -9,10 +9,6 @@ import numpy             as np
 #########################################################################################
 # Reading connectivity data
 #########################################################################################
-
-# Files from https://github.com/xjwanglab/JoglekarEtAl2018_Neuron
-#subgraphData = scipy.io.loadmat('interareal/subgraphData.mat')
-# {'FLN': M, 'FLN': flnMat, 'Distances': distMat, 'Hierarchy': netwParams_hier}
 data = np.load('interareal/markov2014.npy', allow_pickle=True).item()
 
 # Graph parameters
@@ -20,13 +16,10 @@ Nareas     = 29             # Number of areas
 Npop       = 2             # Number of local populations (one excitatory and one inhibitory)
 Npop_total = Npop * Nareas # Number of total populations
 # FLN matrix
-#flnMat = subgraphData['flnMat'];
 #M      = (flnMat > 0).astype(int) # Binarized
 flnMat = data['FLN']
 M      = (flnMat > 0).astype(int) # Binarized
 # Hierarchy values
-#h      = np.squeeze( subgraphData['hierVals'] )
-#h      = h / np.max(h) # Normalized
 h = np.squeeze(data['Hierarchy'].T)
 
 def simulate(simtime = 1000.0, dt = 0.2, params=None, max_cond = True, seed = 0):
