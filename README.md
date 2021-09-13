@@ -111,6 +111,14 @@ Next, follow the steps bellow:
 tar -xf nest-simulator-3.0.tar.gz 
 ```
 
+This will create the folder **nest-simulator-3.0** with the installation files. 
+
+2. Create a build directory and change to it
+```
+mkdir nest-simulator-3.0-build
+cd nest-simulator-3.0-build
+```
+
 
 ### [ReScience C](https://rescience.github.io/) article template
 
