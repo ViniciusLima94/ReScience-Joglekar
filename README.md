@@ -102,7 +102,11 @@ $conda install PYTHON_PACKAGE_NAME
 
 ### Building NEST version 3
 
+To date the current version of NEST that can be installed via Ananconda is the version 2.20.x, therefore it is necessary to build NEST 3 from the source. To do so first download the tarball with it by using the link bellow:
 
+```
+https://github.com/nest/nest-simulator/archive/refs/tags/v3.0.tar.gz
+```
 
 
 
