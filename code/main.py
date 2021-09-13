@@ -2,14 +2,22 @@
 # Main code to run all the results from the paper
 #########################################################################################
 import sys
+import argparse
 import plot_figures
 import setParams
 import numpy        as np
 
+# Argument parsing
+parser = argparse.ArgumentParser()
+parser.add_argument("PROTOCOL", help="which protocol to run", choices=[0, 1, 2, 3],
+                    type=int)
+parser.add_argument("NTHREADS", help="number of threads to use", choices=range(1,41),
+                    type=int)
+args   = parser.parse_args()
 # Which protocol to run
-p   = int(sys.argv[-2]) 
+p      = args.PROTOCOL 
 # Number of local threads to use
-lnt = int(sys.argv[-1])
+lnt    = args.NTHREADS
 
 # Will run the code fig1.py, to generate the first figure from the original paper
 if p == 0:
