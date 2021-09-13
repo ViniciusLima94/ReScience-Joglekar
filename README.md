@@ -26,6 +26,86 @@ The machine used to run the codes related to this replication was equiped with a
 
 The version of the packages for scientific computing in python might be changed without any downside, however for **NEST** should be version 3.0 (or above).
 
+## Package installation
+
+To assure that all data and figures will be generated as presented in the article, we recommend following the instructions below and use the modules in the same versions described here, although the code also works in other versions.
+
+### Python installation
+
+The network simulation is implemented with Python (v.3.8.8).
+
+To install Python 3, type in console:
+
+```
+$sudo apt-get update 
+$sudo apt-get install python3.8
+```
+
+### Installing pip
+
+We use pip, a package management system, to install the Python modules described above.
+To install pip in Ubuntu type in a terminal:
+
+```
+$sudo apt install python3-pip
+```
+
+Upgrade pip to the latest version:
+
+```
+$pip3 install --upgrade pip
+```
+
+Installation of packages using pip can be done with the following command:
+
+```
+$pip3 install --user PYTHON_PACKAGE_NAME
+```
+
+#### Python modules installation using pip (recommended)
+
+To install the required packages type in terminal:
+
+```
+$pip3 install --user matplotlib==3.3.4
+$pip3 install --user numpy==1.18.5
+$pip3 install --user scipy==1.6.2
+```
+or
+
+```
+$pip3 install --user matplotlib==3.3.4 numpy==1.18.5 scipy==1.6.2
+```
+
+All software packages are also available in the Anaconda distribution.
+
+### Alternative installation (using Anaconda)
+
+Alternatively, you can install the scientific Python modules with the Anaconda data science platform.
+
+For Linux, Anaconda with Python 3.8 is only available for 64-bit systems. Download link:
+https://repo.anaconda.com/archive/Anaconda3-2020.11-Linux-x86_64.sh
+
+To install open a terminal in the folder containing the downloaded file and type:
+
+```
+$chmod +x Anaconda3-2020.11-Linux-x86_64.sh
+
+$./Anaconda3-2020.11-Linux-x86_64.sh
+```
+
+#### Python modules installation using Anaconda
+
+```
+$conda install PYTHON_PACKAGE_NAME
+```
+
+### Building NEST version 3
+
+
+
+
+
 ### [ReScience C](https://rescience.github.io/) article template
 
 This repository contains the Latex (optional) template for writing a ReScience
