@@ -124,6 +124,11 @@ cd nest-simulator-3.0-build
 cmake -DCMAKE_INSTALL_PREFIX:PATH=$HOME/opt/nest/3.0 ../nest-simulator-3.0
 make
 make install
+```
+
+And optionally:
+
+```
 make installcheck
 ```
 
