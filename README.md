@@ -171,8 +171,8 @@ In [1]: import nest
 
 The code subdirectory contain the following files:
 
-* **main.py:** This script is used to run the different "protocols"
-
+* **main.py:** This script is used to run the different "protocols" to generate the results from the original publication.
+* **fig1.py:** This script containt the implementation of the two population rate model that generates figure 1 from the original publication.
 ### [ReScience C](https://rescience.github.io/) article template
 
 This repository contains the Latex (optional) template for writing a ReScience
