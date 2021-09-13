@@ -143,8 +143,9 @@ vim ~/.bashrc
 
 ##### Add the following two lines at the end of the file (you might need to access it as super user)
 ```
-export PATH="$HOME/opt/nest/3.0:$PATH"
-export PYTHONPATH="$HOME/opt/nest/3.0/lib/python3.8/site-packages${PYTHONPATH:+:$PYTHONPATH}
+~~export PATH="$HOME/opt/nest/3.0:$PATH"~~
+~~export PYTHONPATH="$HOME/opt/nest/3.0/lib/python3.8/site-packages${PYTHONPATH:+:$PYTHONPATH}~~
+source $HOME/opt/nest/3.0/bin/nest_vars.sh
 ```
 
 After reseting the terminal (or oppening a new one) you should be able to import nest from the Python console and see the following message:
