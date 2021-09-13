@@ -167,6 +167,12 @@ In [1]: import nest
  Type 'nest.help()' to find out more about NEST.
 ```
 
+## Code repository
+
+The code subdirectory contain the following files:
+
+* **main.py:** This script is used to run the different "protocols"
+
 ### [ReScience C](https://rescience.github.io/) article template
 
 This repository contains the Latex (optional) template for writing a ReScience
