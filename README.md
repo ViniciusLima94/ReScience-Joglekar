@@ -135,6 +135,26 @@ export PATH="$HOME/opt/nest/3.0:$PATH"
 export PYTHONPATH="$HOME/opt/nest/3.0/lib/python3.8/site-packages${PYTHONPATH:+:$PYTHONPATH}
 ```
 
+After reseting the terminal (or oppening a new one) you should be able to import nest from the Python console and see the following message:
+
+```
+In [1]: import nest
+
+              -- N E S T --
+  Copyright (C) 2004 The NEST Initiative
+
+ Version: nest-3.0
+ Built: Sep  8 2021 15:35:11
+
+ This program is provided AS IS and comes with
+ NO WARRANTY. See the file LICENSE for details.
+
+ Problems or suggestions?
+   Visit https://www.nest-simulator.org
+
+ Type 'nest.help()' to find out more about NEST.
+```
+
 ### [ReScience C](https://rescience.github.io/) article template
 
 This repository contains the Latex (optional) template for writing a ReScience
