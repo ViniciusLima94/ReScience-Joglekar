@@ -1,3 +1,31 @@
+## Introduction
+
+This is a reference implementation of the following model:
+
+Joglekar, Madhura R., et al. "Inter-areal balanced amplification enhances signal propagation in a large-scale circuit model of the primate cortex." Neuron 98.1 (2018): 222-234.
+
+## Platform information
+
+**Platform:** Ubuntu 20.04.2 LTS
+
+**cmake:** 3.16.3
+
+**gcc (GCC):** 9.3.0
+
+**Python:** 3.8.8 
+
+**Matplotlib:** 3.3.4
+
+**NumPy:** 1.18.5
+
+**SciPy:** 1.6.2
+
+**NEST:** 3.0.0
+
+The machine used to run the codes related to this replication was equiped with a processor **Intel Xeon Gold 6320** 2.1GHz with 20C/20T. The rate models were simulared using a single-core while the spiking-neuron model was simulated using 20C.
+
+The version of the packages for scientific computing in python might be changed without any downside, however for **NEST** should be version 3.0 (or above).
+
 ### [ReScience C](https://rescience.github.io/) article template
 
 This repository contains the Latex (optional) template for writing a ReScience
