@@ -15,7 +15,7 @@ parser.add_argument("NTHREADS", help="number of threads to use", choices=range(1
                     type=int)
 args   = parser.parse_args()
 # Which protocol to run
-p      = args.PROTOCOL 
+p      = args.PROTOCOL
 # Number of local threads to use
 lnt    = args.NTHREADS
 
