@@ -1,0 +1,10 @@
+name: rs_joglekar
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - matplotlib
+  - scipy
+  - numpy
+  - nest-simulator
+  - ipython

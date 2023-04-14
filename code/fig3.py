@@ -22,11 +22,10 @@ M      = (flnMat > 0).astype(int) # Binarized
 # Hierarchy values
 h = np.squeeze(data['Hierarchy'].T)
 
-def simulate(simtime = 1000.0, dt = 0.2, params=None, max_cond = True, seed = 0):
+def simulate(lnt = 1, simtime = 1000.0, dt = 0.2, params=None, max_cond = True, seed = 0):
     #########################################################################################
     # Configure NEST kernel and parameters
     #########################################################################################
-    lnt  = 1
 
     nest.ResetKernel()
     nest.SetKernelStatus({

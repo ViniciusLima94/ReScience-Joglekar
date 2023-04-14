@@ -78,13 +78,13 @@ if p == 1:
     #########################################################################################
     # Simulating Weak GBA
     #########################################################################################
-    tidx, r_w, max_freq_w = fig3.simulate(simtime = simtime, dt = dt, params=params, max_cond = False, seed = 10)
+    tidx, r_w, max_freq_w = fig3.simulate(lnt = lnt, simtime = simtime, dt = dt, params=params, max_cond = False, seed = 10)
 
     #########################################################################################
     # Simulating Strong GBA
     #########################################################################################
     params = setParams.get_params_rate_model(gba='strong-gba') # Getting parameters for strong
-    tidx, r_s, max_freq_s = fig3.simulate(simtime = simtime, dt = dt, params=params, max_cond = False, seed = 10)
+    tidx, r_s, max_freq_s = fig3.simulate(lnt = lnt, simtime = simtime, dt = dt, params=params, max_cond = False, seed = 10)
 
     plot_figures.fig3b_d(tidx, r_w, max_freq_w, r_s, max_freq_s)
 
@@ -104,7 +104,7 @@ if p == 1:
             else:
                 params['weights']['wei']  = 19.7
             params['weights']['muee'] = muee_vec[i]
-            t,r,max_freq = fig3.simulate(simtime = simtime, dt = dt, params = params, seed = 10, max_cond = False)
+            t,r,max_freq = fig3.simulate(lnt = lnt, simtime = simtime, dt = dt, params = params, seed = 10, max_cond = False)
             max_r_24c_f[i,uu] = max_freq[-1]-10
             if max_r_24c_f[i,uu] > 500.:
                 max_r_24c_f[i,uu] = 500.
@@ -116,7 +116,7 @@ if p == 1:
             else:
                 params['weights']['wei']  = 19.7
             params['weights']['muee'] = muee_vec[i]
-            t,r,max_freq = fig3.simulate(simtime = simtime, dt = dt, params = params, seed = 10, max_cond = True)
+            t,r,max_freq = fig3.simulate(lnt = lnt, simtime = simtime, dt = dt, params = params, seed = 10, max_cond = True)
             max_r_24c_t[i,uu] = max_freq[-1]-10
             if max_r_24c_t[i,uu] > 500.:
                 max_r_24c_t[i,uu] = 500.
@@ -158,7 +158,7 @@ if p == 2:
     plot_figures.fig5_6(t_sw, i_sw, t_ss, i_ss, maxf_sw, maxf_ss, 'sync', simtime, 'figures/fig6.png')
 
     #########################################################################################
-    # Strong GBA / Synchronous (bad seed)
+    # Strong GBA / Synchronous (bad seed=0, using lnt=20)
     #########################################################################################
     i_ss, _, t_ss, _, maxf_ss,_,_ = fig5_6.simulate(lnt = lnt, seed = 10, simtime = simtime, reg = 'sync', gba = 'strong-gba', transient = 0, dt = dt)
     plot_figures.plot_raster(t_ss, i_ss, None, simtime,  'figures/fig7.png', save=True)

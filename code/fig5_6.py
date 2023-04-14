@@ -20,9 +20,6 @@ delayMat        = data['Distances'] / 3.5
 
 def simulate(lnt = 1, seed = 100, simtime = 1000.0, reg = 'async', gba = 'weak-gba', transient = 0, dt = 0.2, input_to_v1 = True, use_default_noise=True, Ie_mean=284.0, Ii_mean=294.0):
 
-    
-    # seed = 0 - Ruim; seed = 100 - bão (for lnt=20)
-
     #########################################################################################
     # Getting parameters
     #########################################################################################
