@@ -50,7 +50,7 @@ def get_params_spiking_model(dt, reg = 'async', gba = 'weak-gba'):
     #########################################################################################
     # Synapse parameters
     #########################################################################################
-    alpha  = 4.0       
+    eta  = 4.0       
     tau_ex = 20.0       # Excitatory time constant
     tau_in = 10.0       # Inhibitory time constant
     d      = 2.0        # Intra-areal delay in ms
@@ -91,4 +91,4 @@ def get_params_spiking_model(dt, reg = 'async', gba = 'weak-gba'):
     I_ext['async'] = {'weak-gba': {'Ie' : (14.2/R)*1000, 'Ii': (15.7/R)*1000}, 'strong-gba': {'Ie' : (14.2/R)*1000, 'Ii': (15.7/R)*1000}}
     I_ext['sync']  = {'weak-gba': {'Ie' : (15.4/R)*1000, 'Ii': (14.5/R)*1000}, 'strong-gba': {'Ie' : (16.0/R)*1000, 'Ii': (14.5/R)*1000}}
 
-    return Nareas, NE, NI, N, alpha, tau_ex, tau_in, d, p, R, sigma, exc_Cm, in_Cm, std_ex, std_in, params, I_ext, inputs
+    return Nareas, NE, NI, N, eta, tau_ex, tau_in, d, p, R, sigma, exc_Cm, in_Cm, std_ex, std_in, params, I_ext, inputs

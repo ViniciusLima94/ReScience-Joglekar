@@ -23,7 +23,7 @@ def simulate(lnt = 1, seed = 100, simtime = 1000.0, reg = 'async', gba = 'weak-g
     #########################################################################################
     # Getting parameters
     #########################################################################################
-    Nareas, NE, NI, N, alpha, tau_ex, tau_in, d, \
+    Nareas, NE, NI, N, eta, tau_ex, tau_in, d, \
     p, R, sigma, exc_Cm, in_Cm, std_ex, std_in, \
     params, I_ext, inputs = setParams.get_params_spiking_model(dt,reg=reg,gba=gba)
     
@@ -129,8 +129,8 @@ def simulate(lnt = 1, seed = 100, simtime = 1000.0, reg = 'async', gba = 'weak-g
     W_ee_mat = np.zeros([Nareas, Nareas])
     W_ei_mat = np.zeros([Nareas, Nareas])
     for i,j in zip(pre,pos):  
-        W_ee_mat[j,i] = (1.0 + alpha * netwParams_hier[j][0]) * muee * flnMat[j,i]
-        W_ei_mat[j,i] = (1.0 + alpha * netwParams_hier[j][0]) * muie * flnMat[j,i]
+        W_ee_mat[j,i] = (1.0 + eta * netwParams_hier[j][0]) * muee * flnMat[j,i]
+        W_ei_mat[j,i] = (1.0 + eta * netwParams_hier[j][0]) * muie * flnMat[j,i]
 
     #########################################################################################
     # Create intra-areal connections
@@ -143,8 +143,8 @@ def simulate(lnt = 1, seed = 100, simtime = 1000.0, reg = 'async', gba = 'weak-g
     # Intra-connections
     for pop in range(Nareas):
         # Create excitatory connections
-        nest.Connect(pop_e[pop], pop_e[pop], conn_exc, {'delay': d, 'weight': (1.0+alpha*netwParams_hier[pop][0])*wee})
-        nest.Connect(pop_e[pop], pop_i[pop], conn_exc, {'delay': d, 'weight': (1.0+alpha*netwParams_hier[pop][0])*wie})
+        nest.Connect(pop_e[pop], pop_e[pop], conn_exc, {'delay': d, 'weight': (1.0+eta*netwParams_hier[pop][0])*wee})
+        nest.Connect(pop_e[pop], pop_i[pop], conn_exc, {'delay': d, 'weight': (1.0+eta*netwParams_hier[pop][0])*wie})
 
         # Create inhibitory connections
         nest.Connect(pop_i[pop], pop_e[pop], conn_inh, {'delay': d, 'weight': -wei})
