@@ -39,6 +39,42 @@ To install Python 3, type in console:
 ```
 $sudo apt-get update 
 $sudo apt-get install python3.8
+
+
+
+### Installation using Anaconda
+
+
+You can install the scientific Python modules with the Anaconda data science platform.
+
+For Linux, Anaconda with Python 3.8 is only available for 64-bit systems. Download link:
+https://repo.anaconda.com/archive/Anaconda3-2020.11-Linux-x86_64.sh
+
+To install open a terminal in the folder containing the downloaded file and type:
+```
+$chmod +x Anaconda3-2020.11-Linux-x86_64.sh
+
+$./Anaconda3-2020.11-Linux-x86_64.sh
+
+
+#### Python modules installation using Anaconda
+
+```
+$conda install PYTHON_PACKAGE_NAME
+
+The easiest way to install the packages needed to run the codes in this repository,
+is to install them by using the .yml files provided:
+
+- rs_joglekar.yml
+- rs_joglekar_all.yml
+
+In the first file we specified the specfic packages used in our replication, 
+whereas in the second I the dependencies for the NEST will also be installed. To
+install the yml file do:
+
+```
+```
+conda env create -f environment.yml
 ```
 
 ### Installing pip
@@ -79,26 +115,6 @@ $pip3 install --user matplotlib==3.3.4 numpy==1.18.5 scipy==1.6.2
 
 All software packages are also available in the Anaconda distribution.
 
-### Alternative installation (using Anaconda)
-
-Alternatively, you can install the scientific Python modules with the Anaconda data science platform.
-
-For Linux, Anaconda with Python 3.8 is only available for 64-bit systems. Download link:
-https://repo.anaconda.com/archive/Anaconda3-2020.11-Linux-x86_64.sh
-
-To install open a terminal in the folder containing the downloaded file and type:
-
-```
-$chmod +x Anaconda3-2020.11-Linux-x86_64.sh
-
-$./Anaconda3-2020.11-Linux-x86_64.sh
-```
-
-#### Python modules installation using Anaconda
-
-```
-$conda install PYTHON_PACKAGE_NAME
-```
 
 ### Building NEST version 3
 
