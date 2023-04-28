@@ -39,11 +39,9 @@ To install Python 3, type in console:
 ```
 $sudo apt-get update 
 $sudo apt-get install python3.8
-
-
+```
 
 ### Installation using Anaconda
-
 
 You can install the scientific Python modules with the Anaconda data science platform.
 
@@ -51,16 +49,18 @@ For Linux, Anaconda with Python 3.8 is only available for 64-bit systems. Downlo
 https://repo.anaconda.com/archive/Anaconda3-2020.11-Linux-x86_64.sh
 
 To install open a terminal in the folder containing the downloaded file and type:
+
 ```
 $chmod +x Anaconda3-2020.11-Linux-x86_64.sh
 
 $./Anaconda3-2020.11-Linux-x86_64.sh
-
+```
 
 #### Python modules installation using Anaconda
 
 ```
 $conda install PYTHON_PACKAGE_NAME
+```
 
 The easiest way to install the packages needed to run the codes in this repository,
 is to install them by using the .yml files provided:
@@ -73,8 +73,13 @@ whereas in the second I the dependencies for the NEST will also be installed. To
 install the yml file do:
 
 ```
+conda env create -f rs_joglekar.yml
 ```
-conda env create -f environment.yml
+
+Before running the codes, activate the enviroment by doing:
+
+```
+conda activate rs_joglekar
 ```
 
 ### Installing pip
@@ -116,7 +121,7 @@ $pip3 install --user matplotlib==3.3.4 numpy==1.18.5 scipy==1.6.2
 All software packages are also available in the Anaconda distribution.
 
 
-### Building NEST version 3
+### Building NEST version 3 from source
 
 To date the current version of NEST that can be installed via Ananconda is the version 2.20.x, therefore it is necessary to build NEST 3 from the source. To do so first download the tar file with it by using the following link: https://github.com/nest/nest-simulator/archive/refs/tags/v3.0.tar.gz
 
