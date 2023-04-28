@@ -50,7 +50,7 @@ def get_params_spiking_model(dt, reg = 'async', gba = 'weak-gba'):
     #########################################################################################
     # Synapse parameters
     #########################################################################################
-    alpha  = 4.0        # So deus sabe
+    alpha  = 4.0        
     tau_ex = 20.0       # Excitatory time constant
     tau_in = 10.0       # Inhibitory time constant
     d      = 2.0        # Intra-areal delay in ms
