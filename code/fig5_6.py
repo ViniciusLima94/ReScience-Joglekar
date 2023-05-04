@@ -18,7 +18,7 @@ flnMat          = data['FLN']
 M               = (flnMat > 0).astype(int)
 delayMat        = data['Distances'] / 3.5
 
-def simulate(lnt = 1, seed = 100, simtime = 1000.0, reg = 'async', gba = 'weak-gba', transient = 0, dt = 0.2, input_to_v1 = True, use_default_noise=True, Ie_mean=284.0, Ii_mean=294.0):
+def simulate(lnt = 1, seed = 100, simtime = 1000.0, reg = 'async', gba = 'weak-gba', transient = 0, dt = 0.2, input_to_v1 = True, IV1=None, use_default_noise=True, Ie_mean=284.0, Ii_mean=294.0):
 
     #########################################################################################
     # Getting parameters
@@ -108,6 +108,8 @@ def simulate(lnt = 1, seed = 100, simtime = 1000.0, reg = 'async', gba = 'weak-g
     # Input current devices
     #########################################################################################
     if input_to_v1 == True:
+        if isinstance(IV1, float):
+            inputs[reg][gba]['I'] = IV1
         input_v1 = nest.Create('step_current_generator')
         nest.SetStatus(input_v1, [{'amplitude_times': [inputs[reg][gba]['t_on'], inputs[reg][gba]['t_off']],
                                    'amplitude_values':[inputs[reg][gba]['I'], 0.]}])
