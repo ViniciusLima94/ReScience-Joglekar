@@ -8,6 +8,4 @@
 *.bcf
 *.run.xml
 *.out
-*.svg
-__pycache__/
 
