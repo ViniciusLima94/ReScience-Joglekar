@@ -9,7 +9,7 @@ import numpy        as np
 
 # Argument parsing
 parser = argparse.ArgumentParser()
-parser.add_argument("PROTOCOL", help="which protocol to run", choices=[0, 1, 2, 3],
+parser.add_argument("PROTOCOL", help="which protocol to run", choices=[0, 1, 2, 3, 4],
                     type=int)
 parser.add_argument("NTHREADS", help="number of threads to use", choices=range(1,41),
                     type=int)
@@ -207,27 +207,3 @@ if p == 3:
                                                 gba = 'strong-gba', transient = trans, dt = dt, input_to_v1 = False, 
                                                 use_default_noise=False, Ie_mean=310.0, Ii_mean=270.0)
 
-
-if p == 4:
-
-    import fig5_6
-
-    #########################################################################################
-    # Simulation parameters
-    #########################################################################################
-    simtime = 1000.0           # Simulation time (ms)
-    dt      = 0.1              # Simulation resolution (ms)
-    np.random.seed(10)
-
-    
-    IV1s = np.linspace(70, 120, 10)
-
-    #########################################################################################
-    # Strong GBA / Asynchronous
-    #########################################################################################
-    for IV1 in IV1s:
-        i_as, _, t_as, _, maxf_as,_,_ = fig5_6.simulate(lnt = lnt, seed = 10,
-                                                        simtime = simtime,
-                                                        IV1=IV1, reg = 'async',
-                                                        gba = 'strong-gba',
-                                                        transient = 0, dt = dt)
