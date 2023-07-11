@@ -41,6 +41,43 @@ $sudo apt-get update
 $sudo apt-get install python3.8
 ```
 
+### Installation using Anaconda (**recommended**)
+
+You can install the scientific Python modules with the Anaconda data science platform.
+
+For Linux, Anaconda with Python 3.8 is only available for 64-bit systems. Download link:
+https://repo.anaconda.com/archive/Anaconda3-2020.11-Linux-x86_64.sh
+
+To install open a terminal in the folder containing the downloaded file and type:
+
+```
+$chmod +x Anaconda3-2020.11-Linux-x86_64.sh
+
+$./Anaconda3-2020.11-Linux-x86_64.sh
+```
+
+Once Anaconda is installed, the easiest way to install the packages required is via the enviroment file that we provided, using the command from the code directory:
+
+```
+conda env create -f rs_joglekar_all.yml
+```
+
+Once the enviroment is installed it can be activate with the command
+
+```
+conda activate rs_joglekar
+```
+
+After this step, the codes in this repository can be run withou dependency issues.
+
+#### Python modules installation using Anaconda
+
+Alternativelly, the user can manually install the requirements using conda, using the command bellow.
+
+```
+$conda install PYTHON_PACKAGE_NAME
+```
+
 ### Installing pip
 
 We use pip, a package management system, to install the Python modules described above.
@@ -56,48 +93,14 @@ Upgrade pip to the latest version:
 $pip3 install --upgrade pip
 ```
 
+#### Python modules installation using pip
+
 Installation of packages using pip can be done with the following command:
 
 ```
 $pip3 install --user PYTHON_PACKAGE_NAME
 ```
 
-### Installation using Anaconda (recommended)
-
-You can install the scientific Python modules with the Anaconda data science platform.
-
-For Linux, Anaconda with Python 3.8 is only available for 64-bit systems. Download link:
-https://repo.anaconda.com/archive/Anaconda3-2020.11-Linux-x86_64.sh
-
-To install open a terminal in the folder containing the downloaded file and type:
-
-```
-$chmod +x Anaconda3-2020.11-Linux-x86_64.sh
-
-$./Anaconda3-2020.11-Linux-x86_64.sh
-```
-
-The easiest way to install the packages required is via the enviroment file that we provided, using the command from the code directory:
-
-```
-conda env create -f rs_joglekar_all.yml
-```
-
-Once the enviroment is installed it can be activate with the command
-
-```
-conda activate rs_joglekar
-```
-
-#### Python modules installation using Anaconda
-
-Alternativelly, the user can manually install the requirements using conda, using the command bellow.
-
-```
-$conda install PYTHON_PACKAGE_NAME
-```
-
-#### Python modules installation using pip
 
 To install the required packages type in terminal:
 
@@ -112,10 +115,16 @@ or
 $pip3 install --user matplotlib==3.3.4 numpy==1.18.5 scipy==1.6.2
 ```
 
+### Installing NEST version 3 (or higher)
+
+If the user opts for not using the available enviroment .yml file, NEST can be installed using conda by following the instructions in the NEST official website: https://nest-simulator.readthedocs.io/en/v2.18.0/installation/conda_install.html
+
 
 ### Building NEST version 3
 
-To date the current version of NEST that can be installed via Ananconda is the version 2.20.x, therefore it is necessary to build NEST 3 from the source. To do so first download the tar file with it by using the following link: https://github.com/nest/nest-simulator/archive/refs/tags/v3.0.tar.gz
+Another option is to install NEST from the source.
+
+To do so first download the tar file with it by using the following link: https://github.com/nest/nest-simulator/archive/refs/tags/v3.0.tar.gz
 
 Next, follow the steps bellow:
 
@@ -206,49 +215,9 @@ The outcome of each protocol is detailed below:
 
 * **protocol 0:** Simulate the two population rate model and generate figure 1 from the original paper (figure 2 in the replication paper).
 * **protocol 1:** Simulate the 29 population rate model and generate figure 3 from the original paper (figure 3 in the replication paper).
-* **protocol 2:** Simulate the spiking-neuron model  for the conditions weak/strong GBA synchronous/assyinchronous and generate figures 5  and 6 from the original paper (figure 4 and 5 in the replication paper).
+* **protocol 2:** Simulate the spiking-neuron model  for the conditions weak/strong GBA synchronous/assyinchronous and generate figures 5  and 6 from the original paper (figure 4 and 5 in the replication paper). It generate also figure 6 from the replication paper.
 * **protocol 3:** Simulate the spiking-neuron model in the absence of external stimuli applied to the V1 population to assure that the network average frequency rate is in the range specified in the original paper. 
 
 In the machine used to run the protocols we set **N_THREADS** as 1 for protocol 0 and 1 and as 20 to the remaining protocols.
 
 **WARNING:** About 10GB of RAM is used for protocols 2 and 3 (using 20 threads).
-
-### [ReScience C](https://rescience.github.io/) article template
-
-This repository contains the Latex (optional) template for writing a ReScience
-C article and the (mandatory) YAML metadata file. For the actual article,
-you're free to use any software you like as long as you enforce the proposed
-PDF style. A tool is available for the latex template that produces latex
-definitions from the metadata file. If you use another software, make sure that
-metadata and PDF are always synced.
-
-You can also use overleaf with the [provided template](https://www.overleaf.com/read/kfrwdmygjyqw) but in this case, you'll have to enter `metadata.tex` manually.
-
-#### Usage
-
-For a submission, fill in information in
-[metadata.yaml](./metadata.yaml), modify [content.tex](content.tex)
-and type:
-
-```bash
-$ make 
-```
-
-This will produce an `article.pdf` using xelatex and provided font. Note that you must have Python 3 and [PyYAML](https://pyyaml.org/) installed on your computer, in addition to `make`.
-
-
-After acceptance, you'll need to complete [metadata.yaml](./metadata.yaml) with information provided by the editor and type again:
-
-```bash
-$ make
-```
-
-(C) 2015-2020, Nicolas Rougier + co-authors GPL-3+, Apache v2+, SIL Open Font License
-
-This set of template files is free-licensed. The files contained in
-the sub-directories roboto/; source-code-pro/; source-sans-pro/;
-source-serif-pro/; have their free licences indicated with a
-"*License.txt" file. All other files, including this one, are licensed
-under the GPL version 3 or later, at your choosing, by Nicolas Rougier
-and co-authors, 2015-2020. See the file COPYING for details of the
-GPL-3 licence.
