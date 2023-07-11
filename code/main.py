@@ -207,3 +207,12 @@ if p == 3:
                                                 gba = 'strong-gba', transient = trans, dt = dt, input_to_v1 = False, 
                                                 use_default_noise=False, Ie_mean=310.0, Ii_mean=270.0)
 
+    print(f"          Weak GBA           ")
+    print(f"           | Async |  Sync  |")
+    print(f"   E       | {rewa}|  {rews}|")
+    print(f"   I       | {riwa}|  {riws}|")
+    print("------------------------------")
+    print(f"          Strong GBA         ")
+    print(f"           | Async |  Sync  |")
+    print(f"   E       | {resa}|  {ress}|")
+    print(f"   I       | {risa}|  {riss}|")
