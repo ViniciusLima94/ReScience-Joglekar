@@ -9,7 +9,7 @@ import numpy        as np
 
 # Argument parsing
 parser = argparse.ArgumentParser()
-parser.add_argument("PROTOCOL", help="which protocol to run", choices=[0, 1, 2, 3, 4],
+parser.add_argument("PROTOCOL", help="which protocol to run", choices=[0, 1, 2, 3],
                     type=int)
 parser.add_argument("NTHREADS", help="number of threads to use", choices=range(1,41),
                     type=int)
@@ -144,7 +144,7 @@ if p == 2:
     # Strong GBA / Asynchronous
     #########################################################################################
     i_as, _, t_as, _, maxf_as,_,_ = fig5_6.simulate(lnt = lnt, seed = 10, simtime = simtime, reg = 'async', gba = 'strong-gba', transient = 0, dt = dt)
-    plot_figures.fig5_6(t_aw, i_aw, t_as, i_as, maxf_aw, maxf_as, 'async', simtime, 'figures/fig5.png')
+    plot_figures.fig5_6(t_aw, i_aw, t_as, i_as, maxf_aw, maxf_as, 'async', simtime, 'figures/fig4.png')
 
     #########################################################################################
     # Weak GBA / Synchronous
@@ -155,13 +155,13 @@ if p == 2:
     # Strong GBA / Synchronous
     #########################################################################################
     i_ss, _, t_ss, _, maxf_ss,_,_ = fig5_6.simulate(lnt = lnt, seed = 100, simtime = simtime, reg = 'sync', gba = 'strong-gba', transient = 0, dt = dt)
-    plot_figures.fig5_6(t_sw, i_sw, t_ss, i_ss, maxf_sw, maxf_ss, 'sync', simtime, 'figures/fig6.png')
+    plot_figures.fig5_6(t_sw, i_sw, t_ss, i_ss, maxf_sw, maxf_ss, 'sync', simtime, 'figures/fig5.png')
 
     #########################################################################################
     # Strong GBA / Synchronous (bad seed=0, using lnt=20)
     #########################################################################################
     i_ss, _, t_ss, _, maxf_ss,_,_ = fig5_6.simulate(lnt = lnt, seed = 10, simtime = simtime, reg = 'sync', gba = 'strong-gba', transient = 0, dt = dt)
-    plot_figures.plot_raster(t_ss, i_ss, None, simtime,  'figures/fig7.png', save=True)
+    plot_figures.plot_raster(t_ss, i_ss, None, simtime,  'figures/fig6.png', save=True)
 
 # Compute average frequencie per population in each stage
 if p == 3:

@@ -120,13 +120,13 @@ def fig3b_d(tidx, r_w, max_freq_w, r_s, max_freq_s):
 	plt.xlabel('Areas')
 	plt.tight_layout()
 	#plt.show()
-	plt.savefig('figures/fig3_joglekar_e.pdf', dpi = 600)	
+	plt.savefig('figures/fig3_e.pdf', dpi = 600)	
 	plt.close()
 
 def fig3_f(muee_vec, max_r_24c_t, max_r_24c_f):
 	c = ['b', 'k']
 	l = ['Weak GBA', 'Strong GBA']
-	l1 = [', Eq. (2)', ', Eq. (2)+(27)']
+	l1 = [', Eq. (2) + (27)', ', Eq. (2)']
 	for uu in [0,1]:
 		plt.semilogy(muee_vec, max_r_24c_t[:,uu], 'o-', c=c[uu])
 		plt.semilogy(muee_vec, max_r_24c_f[:,uu], '--', c=c[uu])
