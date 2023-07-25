@@ -1,4 +1,4 @@
-name: rs_joglekar
+name: rs_joglekar_simp
 channels:
   - conda-forge
   - defaults
