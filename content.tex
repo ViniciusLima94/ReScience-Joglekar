@@ -5,7 +5,7 @@
 
 Information processing in the cortex relies on stable and, at the same time, reconfigurable signal propagation among its areas, i.e.: first, the signal is neither attenuated nor amplified as it propagates across the cortical hierarchy of areas; second, the extent to which signal propagate through hierarchically connected regions must be regulated by context. Despite numerous studies done on inter-area signal propagation in the mammalian cortex \cite{van2002fast, kumar2008conditions,kumar2010spiking}, the underlying mechanisms that could allow a simultaneously reliable and flexible signal transmission are not yet completely understood. In computational neuroscience, many models address this question, however most of them make  unrealistic assumptions such as perfect identity of all areas, homogeneity of connection weights across all stages of the hierarchy, and strictly feedforward network architecture,  even though cortical networks are rich in recurrent connections and feedback loops \cite{markov2014b}.
 
-\indent Here we replicate a recent modelling \textcolor{blue}{study} by Joglekar et. al., \cite{joglekar2018inter}. In this work, the authors address the problem of reliable and flexible signal propagation in a large-scale network model embedding a realistic multi-regional connectome. The network structure of the model is prescribed by an empiricaly-determined directed and weighted inter-areal connectivity matrix for the macaque cortex, containing $29$ areas distributed across the occipital, temporal, parietal, and frontal lobes \cite{markov2014b}. Furthermore, regions have heterogeneous time constants, due to a phenomenological reproduction of varying number of excitatory spines across the cortical hierarchy \cite{Elston2007}. The dynamics of network nodes are described initially in terms of a population-level mean-field rate model \cite{chaudhuri2015large,mejias2016feedforward}. In a second part of the article, a spiking network model of leaky integrate-and-fire neurons is used as well to study synchrony modulations within each region.  One of the key contributions \textcolor{blue}{of} Joglekar et. al. \cite{joglekar2018inter} study is to reveal the important role of a mechanism named \emph{global balanced amplification (GBA)}. Briefly, this mechanism consists of increasing inter-areal excitation to facilitate signal propagation to different areas, combined simultaneously with an increase of local inhibition to assure network stability. Modulating GBA provides thus a way to enable stable signal propagation or to disable it, thus conditionally switching on or off the access to regions distant from the site of input injection.
+\indent Here we replicate a recent modelling study by Joglekar et. al., \cite{joglekar2018inter}. In this work, the authors address the problem of reliable and flexible signal propagation in a large-scale network model embedding a realistic multi-regional connectome. The network structure of the model is prescribed by an empiricaly-determined directed and weighted inter-areal connectivity matrix for the macaque cortex, containing $29$ areas distributed across the occipital, temporal, parietal, and frontal lobes \cite{markov2014b}. Furthermore, regions have heterogeneous time constants, due to a phenomenological reproduction of varying number of excitatory spines across the cortical hierarchy \cite{Elston2007}. The dynamics of network nodes are described initially in terms of a population-level mean-field rate model \cite{chaudhuri2015large,mejias2016feedforward}. In a second part of the article, a spiking network model of leaky integrate-and-fire neurons is used as well to study synchrony modulations within each region.  One of the key contributions of Joglekar et. al. \cite{joglekar2018inter} study is to reveal the important role of a mechanism named \emph{global balanced amplification (GBA)}. Briefly, this mechanism consists of increasing inter-areal excitation to facilitate signal propagation to different areas, combined simultaneously with an increase of local inhibition to assure network stability. Modulating GBA provides thus a way to enable stable signal propagation or to disable it, thus conditionally switching on or off the access to regions distant from the site of input injection.
 
 \indent As mentioned in the Methods section of Joglekar et. al. \cite{joglekar2018inter}, the original large-scale spiking neuron network was implemented in the Brian 2 simulator \cite{stimberg2019brian}. Here, we provide an original implementation of both the rate based, and the spike based model in the NEST simulator \cite{gewaltig2007nest, jordan2019nest}, which allows parallel execution of the network simulation, making the code particularly easy to run in super-computers. 
 In addition, our implementation of the model also provides an optimized open code for any researcher willing to use or adapt the model for other scientific projects.
@@ -14,7 +14,7 @@ The selection of results we have chosen to reproduce provides a rich overview of
 
 
 \subsection*{Availability of code implementations for the original model}\label{methods}
-\textcolor{blue}{In the original publication, the authors do not link any associated code repository with their implementation of the models described. However, we found a repository with Matlab and Python (Brian 2) scripts in the following address:  \href{github.com/xjwanglab/JoglekarEtAl2018_Neuron}{github.com/xjwanglab/JoglekarEtAl2018\_Neuron}. Despite the fact that those scripts helped to detect discrepancies and non-specified parameters in the original article, for the spiking model, not all parameters could be directly ``plugged-in'' into Nest without conversion, and some adjustment was often required in order to obtain the firing rate regimes specified in the original paper, as we elaborated throughout this replication paper.}
+In the original publication, the authors do not link any associated code repository with their implementation of the models described. However, we found a repository with Matlab and Python (Brian 2) scripts in the following address:  \href{github.com/xjwanglab/JoglekarEtAl2018_Neuron}{github.com/xjwanglab/JoglekarEtAl2018\_Neuron}. Despite the fact that those scripts helped to detect discrepancies and non-specified parameters in the original article, for the spiking model, not all parameters could be directly ``plugged-in'' into Nest without conversion, and some adjustment was often required in order to obtain the firing rate regimes specified in the original paper, as we elaborated throughout this replication paper.
 
 \section{Methods}\label{methods}
 
@@ -29,7 +29,7 @@ In Fig.~\ref{fig:fig_data}(a) we show the logarithms of the FLN values between a
 \begin{figure}[!ht]
  \centering
  \includegraphics[scale=0.5]{figures/fig_markov.pdf}
- \caption{Data from Markov et. al., \cite{markov2014b} used to build the large-scale networks. In (a) we show the FLN in logarithmic scale due to the large range of values encountered (non-existent connections are shown in black), in (b) the wring distance between cortical areas, and in (c) the normalized anatomical hierarchy of each cortical area.}\label{fig:fig_data}
+ \caption{Data from Markov et. al., \cite{markov2014b} used to build the large-scale networks. In (a) we show the FLN in logarithmic scale due to the large range of values encountered (non-existent connections are shown in black), in (b) the wiring distance between cortical areas, and in (c) the normalized anatomical hierarchy of each cortical area.}\label{fig:fig_data}
 \end{figure}
 
 Henceforth, we will denote a pair of cortical areas by the indexes $i$, and $j$, in such a way that FLN$_{ij}$ is the FLN from area $i$ to area $j$. Note that, since the graph given by the weighted matrix in Fig.~\ref{fig:fig_data}(a) is asymmetric, FLN$_{ij} \ne $ FLN$_{ji}$. The delay will be represent by the letter $D$, and $D_{ij} = D_{ji}$ is the delay between area $i$ and $j$. Similarly, the anatomical hierarchy of area $i$ is denoted by $h_{i}$.
@@ -236,7 +236,7 @@ This first result we reproduce exemplify the mechanism of  balanced amplificatio
 
 \begin{figure}[!ht]
  \centering
- \includegraphics[scale=0.4]{figures/fig1.pdf}
+ \includegraphics[scale=0.4]{figures/figure2.pdf}
  \caption{Replication of the result in Figure~1 of the original publication \cite{joglekar2018inter}. In (a) we show a schematic depiction of the local circuit used to generate the results, in (b) we show the response rate of the excitatory population after its initial value being set to $1$ Hz (emulating application of a brief destabilizing input), for weak (green) and strong (purple) local balanced amplification (LBA). In (c), we show the peak rate of the excitatory population as a function of $\omega_{EE}$, and $\omega_{IE}$, where the green and purple circles indicate the points used to produce the curves in (b) (corresponding, respectively, to the used weak and strong LBA conditions) }\label{fig:fig1}
 \end{figure}
 
@@ -258,7 +258,7 @@ $r_I(0)$ [Hz]           & \multicolumn{2}{c|}{0.00}               \\ \hline
 $\omega_{EE}$ [pA/Hz] & 4.45              & 6.00                \\ \hline
 $\omega_{IE}$ [pA/Hz] & 4.70              & 6.70                \\ \hline
 \end{tabular}
-\caption{Parameters used in Eq.~\ref{eq:rate_local} to produce the results in Fig.~\ref{fig:fig1}. For the parameters in red we could not find a value in the original publication and we had therefore to guess values allowing the reproduction of the published results. Note that we have used $\tau_{E} = \tau_{I} = \tau$.}\label{tab:tab1}
+\caption{Parameters used in Eq.~\ref{eq:rate_local} to produce the results in Fig.~\ref{fig:fig1}. For the parameters in red we could not find a value in the original publication and we had therefore to guess values allowing the reproduction of the published results. Note that we have used $\tau_{E} = \tau_{I} = \tau$.}\textcolor{blue}{Missing parameters: $\tau$.}\label{tab:tab1}
 \end{table}
 
 \subsection{Global Balanced Amplification
@@ -270,7 +270,7 @@ In Fig.~\ref{fig:fig2}(a,b) we show a schematic representation of the connection
 
 \begin{figure}[!hb]
  \centering
- \includegraphics[scale=0.4]{figures/fig3.pdf}
+ \includegraphics[scale=0.4]{figures/figure3.pdf}
  \caption{Reproduction of Figure 3 from the original paper \cite{joglekar2018inter}. In (a) and (b), we show inter-regional coupling within the large-scale connectome model for the regimes of weak and strong Global Balanced Amplification (GBA). In (c) and (d), we show propagating pulses of response to a stimulus injected in region V1, in regions with increasing hierarchy. Responses in (d) are sustained for longer times in certain regions and stronger in amplitude (the green lines in (d) correspond to the lines in (c), remark the changed vertical time-scale). The increase in peak response in strong vs weak GBA is also visualized for all regions in (e), in (f) we show the maximum excitatory rate at area 24c for weak (blue) and strong (black) GBA, the solid lines correspond to the simulations using the correction given by Eq.~\ref{eq:migue}.}\label{fig:fig2}
 \end{figure}
 
@@ -360,7 +360,7 @@ We were able to retrieve the original results, shown in solid lines in Fig.~\ref
     \label{eq:migue}
 \end{equation}
 
-This condition was not mentioned in the original article. However it was found in the Matlab implementation of the model \textcolor{blue}{that we cited in the section ``Availability of code implementations for the original model''.}
+This condition was not mentioned in the original article. However it was found in the Matlab implementation of the model that we cited in the section ``Availability of code implementations for the original model''.
 
 
 Such adjustment guarantees that the firing rates of any population in the model do not go below their baseline activity, causing some of the populations to be effectively ``switched off''. In absence of this condition, some of the inhibitory populations would become too silent, reducing the overall level of inhibition and thus causing some rates to increase in an unbalanced way (hence the larger peak response rate in area 24c). 
@@ -427,7 +427,7 @@ The activity of the network is driven by independent white noise background curr
 
 \noindent where $\mu_{V}$ is the average value of the membrane potential, $\sigma_{V}$ is the standard deviation of the noise, both in mV, and $\xi(t)$ is a Gaussian variable with zero mean and unit variance. 
 
-In the original paper, the authors mention that a background input was given to the network in order to maintain the spiking activity of the excitatory population between $0.75$ and $1.5$ Hz and the inhibitory population between $5$ and$6$ Hz. \textcolor{blue}{Although the authors did not specify the background noise parameters, the model equations found in their Brian2 code take the form $dV/dt = f(V) + (\sigma/\tau)\xi(t)$ (``rishimodelpython\_brian2\_spiking.py''), lines 137 and 141). We converted the values of $\sigma$ set on their code using Eq.~\ref{eq:noise_input}. However, some adjustments of the parameters were required to reproduce the specified steady-state rates (Table~\ref{tab:rates}).}
+In the original paper, the authors mention that a background input was given to the network in order to maintain the spiking activity of the excitatory population between $0.75$ and $1.5$ Hz and the inhibitory population between $5$ and$6$ Hz. Although the authors did not specify the background noise parameters, the model equations found in their Brian2 code take the form $dV/dt = f(V) + (\sigma/\tau)\xi(t)$ (``rishimodelpython\_brian2\_spiking.py''), lines 137 and 141). We converted the values of $\sigma$ set on their code using Eq.~\ref{eq:noise_input}. However, some adjustments of the parameters were required to reproduce the specified steady-state rates (Table~\ref{tab:rates}).
 
 
 \begin{table}[h!]
@@ -457,7 +457,7 @@ To show the propagation of the signal to other areas, in Fig.~\ref{fig:fig3}(c) 
 
 \begin{figure}[!ht]
  \centering
- \includegraphics[scale=0.6]{figures/fig5.pdf}
+ \includegraphics[scale=0.6]{figures/figure4.pdf}
  \caption{Signal propagation in the large-scale spiking neuron network in the asynchronous regime. In (a) we show the network response to a stimulus applied to V1 ($I_{\rm inj, E}^{\rm V1} = 300$ pA) during $150$ ms in the weak GBA. In (b) we show the same but for the strong GBA  condition ($I_{\rm inj, E}^{\rm V1} = 126$ pA). In (c) we show the peak response rate in each region along the cortical hierarchy, after the stimulus injection in V1 for the weak (green), and strong GBA (purple) conditions. }\label{fig:fig3}
 \end{figure}
 
@@ -468,19 +468,19 @@ We performed the same analyses as for the asynchronous case. In Fig.~\ref{fig:fi
 
 \begin{figure}[!ht]
  \centering
-     \includegraphics[scale=0.6]{figures/fig6.pdf}
+     \includegraphics[scale=0.6]{figures/figure5.pdf}
  \caption{Signal propagation in the large-scale spiking neuron network in the synchronous regime. In (a) we show the network's response to a stimulus applied to V1 ($I_{\rm inj, E}^{\rm V1} = 200$ pA) during $8$ ms in the weak GBA condition. In (b) we show the same but for the strong GBA condition  ($I_{\rm inj, E}^{\rm V1} = 200$ pA). In (c), we show the peak frequency in each area after the stimulus injection in V1 for the weak (green), and strong GBA (purple) conditions. }\label{fig:fig4}
 \end{figure}
 
-We report in Fig.~\ref{fig:fig4} a simulation with a good semi-quantitative match with the original results. However, we also noticed that the network is highly sensitive to the random seed used to initialize the simulation and this sensibility on initial conditions may explain the quantitative deviations between our response profile and the one shown in the original paper. It is important to note that NEST assigns different seeds to each thread used to simulate the network, therefore, using a different number of threads when running a parallel situation might change the result, making even more difficult to obtain exactly the same raster when repeating the simulation multiple times (for our simulation we have used $20$ threads). \textcolor{blue}{Furthermore, we noticed the same phenomenon  when running the original Brian 2 code for this model (data not shown), which suggests this is not an issue of incorrectly fitting parameters but rather an intrinsic property of the model. Additionally, we noticed that in the authors' script the seed was fixed (``rishimodelpython\_brian2\_spiking.py'', lines 30-32).}
+We report in Fig.~\ref{fig:fig4} a simulation with a good semi-quantitative match with the original results. However, we also noticed that the network is highly sensitive to the random seed used to initialize the simulation and this sensibility on initial conditions may explain the quantitative deviations between our response profile and the one shown in the original paper. It is important to note that NEST assigns different seeds to each thread used to simulate the network, therefore, using a different number of threads when running a parallel situation might change the result, making even more difficult to obtain exactly the same raster when repeating the simulation multiple times (for our simulation we have used $20$ threads). Furthermore, we noticed the same phenomenon  when running the original Brian 2 code for this model (data not shown), which suggests this is not an issue of incorrectly fitting parameters but rather an intrinsic property of the model. Additionally, we noticed that in the authors' script the seed was fixed (``rishimodelpython\_brian2\_spiking.py'', lines 30-32).
 
 
 
-Further investigations revealed that the network activity depends on the state set for the random number generator. For Figs.~\ref{fig:fig3}-\ref{fig:fig4}, we run the simulations for a range of random seed values to obtain the expected results. However, changing their values could generate an unstable network. Especially, for the strong GBA and synchronous case, activity can become epileptic-like in some high-order regions, as shown in an example simulation in Fig.~\ref{fig:fig5}. 
+Further investigations revealed that the network activity depends on the state set for the random number generator. For Figs.~\ref{fig:fig3}-\ref{fig:fig4}, we run the simulations for a range of random seed values to obtain the expected results. However, changing their values could generate an unstable network. Especially, for the strong GBA and synchronous case, activity can become epileptic-like in some high-order regions, as shown in an example simulation in Fig.~\ref{fig:fig5}. \textcolor{blue}{Conversely, this dependence on initial conditions can generate instances in which the network is in a less excitable state, as a consequence activity may not reach areas such as PROm. In other cases, activity will reach even area 24c, without divergence of firing rates, if the network is in a slightly more excitable state.}
 
 \begin{figure}[!ht]
  \centering
-     \includegraphics[scale=0.6]{figures/fig7.pdf}
+     \includegraphics[scale=0.6]{figures/figure6.pdf}
  \caption{Raster plot for the synchronous regime network with strong GBA condition, with all parameters as in Fig.~\ref{fig:fig4}, but with a different choice of random seeds for the parallel simulation. This example raster manifests that, depending on the seed used, the network may become exceedingly unstable.}\label{fig:fig5}
 \end{figure}
 
@@ -498,17 +498,17 @@ Notice that some in some early sensory regions (V1 to MT) the peak rates are an 
 \multicolumn{1}{|c|}{$\omega_{II}$ {[}mV{]}}             & \multicolumn{2}{c|}{0.075}                 & \multicolumn{2}{c|}{0.3}                  \\ \hline
 \multicolumn{1}{|c|}{$\omega_{EE}$ {[}mV{]}}             & \multicolumn{2}{c|}{0.01}                  & \multicolumn{2}{c|}{0.04}                 \\ \hline
 \multicolumn{1}{|c|}{$\mu_{EI}$ {[}mV{]}}                & \multicolumn{2}{c|}{0.19/4}                & \multicolumn{2}{c|}{0.19}                 \\ \hline
-\multicolumn{1}{|c|}{\textcolor{red}{$\mu_{V,E}$ {[}mV{]}}}               & \multicolumn{2}{c|}{284.0}                 & \multicolumn{2}{c|}{308.0}                \\ \hline
-\multicolumn{1}{|c|}{\textcolor{red}{$\mu_{V,I}$ {[}mV{]}}}               & \multicolumn{2}{c|}{294.0}                 & \multicolumn{2}{c|}{280.0}                \\ \hline
-\multicolumn{1}{|c|}{\textcolor{red}{$\sigma_V$ {[}mV{]}}}                & \multicolumn{2}{c|}{2.12}                  & \multicolumn{2}{c|}{2.12}                 \\ \hline
 \multicolumn{1}{|c|}{$d$ {[}ms{]}}                       & \multicolumn{2}{c|}{2.0}                   & \multicolumn{2}{c|}{2.0}                  \\ \hline
 \multicolumn{1}{|c|}{$\eta$}                             & \multicolumn{2}{c|}{4.0}                   & \multicolumn{2}{c|}{4.0}                  \\ \hline
+\multicolumn{1}{|c|}{\textcolor{red}{$\mu_{V,E}$ {[}mV{]}}}               & \multicolumn{2}{c|}{284.0}                 & 308.0 & 320.0                \\ \hline
+\multicolumn{1}{|c|}{\textcolor{red}{$\mu_{V,I}$ {[}mV{]}}}               & \multicolumn{2}{c|}{314.0}                 & \multicolumn{2}{c|}{280.0}                \\ \hline
+\multicolumn{1}{|c|}{\textcolor{red}{$\sigma_V$ {[}mV{]}}}                & \multicolumn{2}{c|}{2.12}                  & \multicolumn{2}{c|}{2.12}                 \\ \hline
 \multicolumn{1}{|c|}{$t_{\rm durr} $ {[}ms{]}}           & \multicolumn{2}{c|}{150.0}                 & \multicolumn{2}{c|}{8.0}                  \\ \hline
 \multicolumn{1}{|c|}{$\omega_{IE}$ {[}mV{]}}             & 0.0375              & 0.05                 & 0.56               & 0.98                 \\ \hline
 \multicolumn{1}{|c|}{$\mu_{EE}$ {[}mV{]}}                & 0.0375              & 0.05                 & 0.16               & 0.25                 \\ \hline
 \multicolumn{1}{|c|}{$I_{\rm inj, E}^{\rm V1}$ {[}pA{]}} & 300                 & 126                  & 200                & 200                  \\ \hline
 \end{tabular}
-\caption{Parameters used for the spiking neuron networks in the asynchronous , and synchronous regimes , and for strong, and weak GBA for both regimes. For the parameters indicated in red, we could not find corresponding values in the original paper, therefore we had to estimate their values to guarantee a semi-quantitative matching between our reproduced and the original results. Systematic optimization is out-of-reach for such a complex large-scale spiking model.}\label{tab:par_spike}
+\caption{Parameters used for the spiking neuron networks in the asynchronous , and synchronous regimes , and for strong, and weak GBA for both regimes. For the parameters indicated in red, we could not find corresponding values in the original paper, therefore we had to estimate their values to guarantee a semi-quantitative matching between our reproduced and the original results. Systematic optimization is out-of-reach for such a complex large-scale spiking model.} \textcolor{blue}{Missing parameters: $\mu_{V,E}$, $\mu_{V,I}$, $\sigma_V$.}\label{tab:par_spike}
 \end{table}
 
 \subsection{Important information needed during replication}
@@ -526,6 +526,9 @@ In this section we list some information and parameter values that were needed t
     \item The background noise needed to activate the spiking network model were not given in details in the reference article. The only information found were the mean firing rate ranges in the absence of input which are: 0.75 to 1.5 Hz for the excitatory population; and 5 to 6 Hz for the inhibitory population. To try to obtain these firing rates we used, by simplicity, white noise background currents independently injected into every neuron, as described by Eq.~\ref{eq:noise_input} (the average firing rates of the network in the absence of stimuli are shown in Table~\ref{tab:rates} for each condition, all the values are in the range cited in the original publication). The parameters of this white noise currents were adjusted manually (systematic optimization out of reach for such a massive model) and the values are presented in Table \ref{tab:par_spike}.  
     
     \item Considering the approximations made for the spiking network model, we found that rate instabilities could eventually be induced by specific choices of seeds for generating random numbers. And that in some conditions, the peak firing rate of some areas could reach one order of magnitude more than the ones reported in the original paper. This sensitivity is particularly evident in simulations conducted in the high synchrony, strong GBA case. As we shown in Fig.~\ref{fig:fig3} and ~\ref{fig:fig4} we were nevertheless able to replicate the results of Figures~5 and 6 from Joglekar et al. (2018). However, simulations were unstable for some random seeds.
+
+    \item \textcolor{blue}{The results obtained may depend on both the Python and Nest version used, since the RNG algorithms and C compiler used by NEST can influence the results. Since the number of threads used to run the code also changes the seeds assigned to each parallel executer, this can also impact on the results resulting in slightly different outcomes.}
+    
 \end{itemize}
 
 \section{Conclusion}

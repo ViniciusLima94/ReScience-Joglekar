@@ -6,21 +6,21 @@ Joglekar, Madhura R., et al. "Inter-areal balanced amplification enhances signal
 
 ## Platform information
 
-**Platform:** Ubuntu 20.04.2 LTS
+**Platform:** Ubuntu 22.04.2 LTS
 
-**cmake:** 3.16.3
+**cmake:** 3.26.3
 
-**gcc (GCC):** 9.3.0
+**gcc (GCC):** 11.3.0
 
-**Python:** 3.8.8 
+**Python:** 3.11.3 
 
-**Matplotlib:** 3.3.4
+**Matplotlib:** 3.7.1
 
-**NumPy:** 1.18.5
+**NumPy:** 1.24.2
 
-**SciPy:** 1.6.2
+**SciPy:** 1.10.1
 
-**NEST:** 3.0.0
+**NEST:** 3.4.0 (should be >= 3.0.0)
 
 The machine used to run the codes related to this replication was equiped with a processor **Intel Xeon Gold 6320** 2.1GHz with 20C/20T and 125GB ram. The rate models were simulared using a single-core while the spiking-neuron model was simulated using 20C.
 
@@ -32,13 +32,13 @@ To assure that all data and figures will be generated as presented in the articl
 
 ### Python installation
 
-The network simulation is implemented with Python (v.3.8.8).
+The network simulation is implemented with Python (v.3.11.3).
 
 To install Python 3, type in console:
 
 ```
 $sudo apt-get update 
-$sudo apt-get install python3.8
+$sudo apt-get install python3.11
 ```
 
 ### Installation using Anaconda (**recommended**)
@@ -46,14 +46,14 @@ $sudo apt-get install python3.8
 You can install the scientific Python modules with the Anaconda data science platform.
 
 For Linux, Anaconda with Python 3.8 is only available for 64-bit systems. Download link:
-https://repo.anaconda.com/archive/Anaconda3-2020.11-Linux-x86_64.sh
+https://repo.anaconda.com/archive/Anaconda3-2023.07-1-Linux-x86_64.sh
 
 To install open a terminal in the folder containing the downloaded file and type:
 
 ```
-$chmod +x Anaconda3-2020.11-Linux-x86_64.sh
+$chmod +x Anaconda3-2023.07-1-Linux-x86_64.sh
 
-$./Anaconda3-2020.11-Linux-x86_64.sh
+$./Anaconda3-2023.07-1-Linux-x86_64.sh
 ```
 
 Once Anaconda is installed, the easiest way to install the packages required is via the enviroment file that we provided, using the command from the code directory:
@@ -105,45 +105,45 @@ $pip3 install --user PYTHON_PACKAGE_NAME
 To install the required packages type in terminal:
 
 ```
-$pip3 install --user matplotlib==3.3.4
-$pip3 install --user numpy==1.18.5
-$pip3 install --user scipy==1.6.2
+$pip3 install --user matplotlib==3.7.1
+$pip3 install --user numpy==1.24.2
+$pip3 install --user scipy==1.10.1
 ```
 or
 
 ```
-$pip3 install --user matplotlib==3.3.4 numpy==1.18.5 scipy==1.6.2
+$pip3 install --user matplotlib==3.7.1 numpy==1.24.2 scipy==1.10.1
 ```
 
 ### Installing NEST version 3 (or higher)
 
-If the user opts for not using the available enviroment .yml file, NEST can be installed using conda by following the instructions in the NEST official website: https://nest-simulator.readthedocs.io/en/stable/installation/conda_forge.html#conda-forge-install
+If the user opts for not using the available enviroment .yml file, NEST can be installed using conda by following the instructions in the NEST official website: https://nest-simulator.readthedocs.io/en/stable/installation/index.html
 
 
-### Building NEST version 3
+### Building NEST version 3.4
 
 Another option is to install NEST from the source.
 
-To do so first download the tar file with it by using the following link: https://github.com/nest/nest-simulator/archive/refs/tags/v3.0.tar.gz
+To do so first download the tar file with it by using the following link: https://github.com/nest/nest-simulator/archive/refs/tags/v3.4.tar.gz
 
 Next, follow the steps bellow:
 
 #### 1. Decompress the tar file
 ```
-tar -xf nest-simulator-3.0.tar.gz 
+tar -xf nest-simulator-3.4.tar.gz 
 ```
 
-This will create the folder **nest-simulator-3.0** with the installation files. 
+This will create the folder **nest-simulator-3.4** with the installation files. 
 
 #### 2. Create a build directory and change to it
 ```
-mkdir nest-simulator-3.0-build
-cd nest-simulator-3.0-build
+mkdir nest-simulator-3.4-build
+cd nest-simulator-3.4-build
 ```
 
 #### 3. Make and make install NEST
 ```
-cmake -DCMAKE_INSTALL_PREFIX:PATH=$HOME/opt/nest/3.0 ../nest-simulator-3.0
+cmake -DCMAKE_INSTALL_PREFIX:PATH=$HOME/opt/nest/3.4 ../nest-simulator-3.4
 make
 make install
 ```
@@ -165,7 +165,7 @@ vim ~/.bashrc
 
 ##### Add the following two lines at the end of the file (you might need to access it as super user)
 ```
-source $HOME/opt/nest/3.0/bin/nest_vars.sh
+source $HOME/opt/nest/3.4/bin/nest_vars.sh
 ```
 
 After reseting the terminal (or oppening a new one) you should be able to import nest from the Python console and see the following message:
@@ -176,7 +176,7 @@ In [1]: import nest
               -- N E S T --
   Copyright (C) 2004 The NEST Initiative
 
- Version: nest-3.0
+ Version: nest-3.4
  Built: Sep  8 2021 15:35:11
 
  This program is provided AS IS and comes with
@@ -191,6 +191,8 @@ In [1]: import nest
 ## Code repository
 
 The code repository contain the following files:
+
+* **rs_joglekar_all.yml ** *: Code with the package requirements used to run the codes bellow. Use conda to install the packages using this file (see Installation instructions above).
 
 * **main.py:** This script is used to run the different "protocols" to generate the results from the original publication.
 * **fig2.py:** This script contains the implementation of the two population rate model that generates figure 1 from the original publication.

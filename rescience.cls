@@ -302,7 +302,7 @@
   maxbibnames=10,
   isbn = false,
   url = false,
-  doi = false,
+  doi = true,
   autocite = superscript,
   natbib = true]{biblatex}
 \RequirePackage{bibentry}

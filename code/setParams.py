@@ -130,7 +130,6 @@ def get_params_spiking_model(dt, reg="async", gba="weak-gba"):
     # external input parameters
     ##########################################################################
     I_ext = {}
-    # I_ext['async'] = {'weak-gba': {'Ie' : (14.2/R)*1000, 'Ii': (14.7/R)*1000}, 'strong-gba': {'Ie' : (14.2/R)*1000, 'Ii': (14.7/R)*1000}}
     I_ext["sync"] = {
         "weak-gba": {"Ie": (15.4 / R) * 1000, "Ii": (14.0 / R) * 1000},
         "strong-gba": {"Ie": (16.0 / R) * 1000, "Ii": (14.0 / R) * 1000},
@@ -139,7 +138,6 @@ def get_params_spiking_model(dt, reg="async", gba="weak-gba"):
         "weak-gba": {"Ie": (14.2 / R) * 1000, "Ii": (15.7 / R) * 1000},
         "strong-gba": {"Ie": (14.2 / R) * 1000, "Ii": (15.7 / R) * 1000},
     }
-    # I_ext['sync']  = {'weak-gba': {'Ie' : (15.4/R)*1000, 'Ii': (14.5/R)*1000}, 'strong-gba': {'Ie' : (16.0/R)*1000, 'Ii': (14.5/R)*1000}}
 
     return (
         Nareas,
