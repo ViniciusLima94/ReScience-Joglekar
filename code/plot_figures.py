@@ -67,7 +67,7 @@ def fig2c(Fmax, extent):
     plt.plot(Wee, Wei, "black", marker="o", ms=10)
     Wee = 4.45
     Wei = 4.70
-    plt.plot(Wee, Wei, "blue", ms=10)
+    plt.plot(Wee, Wei, "blue", marker="o", ms=10)
 
     plt.savefig("figures/fig2_c.pdf", dpi=600)
     plt.close()
@@ -147,7 +147,7 @@ def fig3b_d(tidx, r_w, max_freq_w, r_s, max_freq_s):
     # plt.yticks(scale, area_plot)
     plt.tight_layout()
     # plt.show()
-    plt.savefig("figures/fig3_b_d.pdf", dpi=600)
+    plt.savefig("figures/fig3_c_d.pdf", dpi=600)
     plt.close()
 
     ax = plt.figure(figsize=(6, 3))

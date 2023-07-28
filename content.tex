@@ -258,7 +258,7 @@ $r_I(0)$ [Hz]           & \multicolumn{2}{c|}{0.00}               \\ \hline
 $\omega_{EE}$ [pA/Hz] & 4.45              & 6.00                \\ \hline
 $\omega_{IE}$ [pA/Hz] & 4.70              & 6.70                \\ \hline
 \end{tabular}
-\caption{Parameters used in Eq.~\ref{eq:rate_local} to produce the results in Fig.~\ref{fig:fig1}. For the parameters in red we could not find a value in the original publication and we had therefore to guess values allowing the reproduction of the published results. Note that we have used $\tau_{E} = \tau_{I} = \tau$.}\textcolor{blue}{Missing parameters: $\tau$.}\label{tab:tab1}
+\caption{Parameters used in Eq.~\ref{eq:rate_local} to produce the results in Fig.~\ref{fig:fig1}. For the parameters in red we could not find a value in the original publication and we had therefore to guess values allowing the reproduction of the published results. Note that we have used $\tau_{E} = \tau_{I} = \tau$.} Missing parameters: $\tau$.\label{tab:tab1}
 \end{table}
 
 \subsection{Global Balanced Amplification
@@ -476,7 +476,7 @@ We report in Fig.~\ref{fig:fig4} a simulation with a good semi-quantitative matc
 
 
 
-Further investigations revealed that the network activity depends on the state set for the random number generator. For Figs.~\ref{fig:fig3}-\ref{fig:fig4}, we run the simulations for a range of random seed values to obtain the expected results. However, changing their values could generate an unstable network. Especially, for the strong GBA and synchronous case, activity can become epileptic-like in some high-order regions, as shown in an example simulation in Fig.~\ref{fig:fig5}. \textcolor{blue}{Conversely, this dependence on initial conditions can generate instances in which the network is in a less excitable state, as a consequence activity may not reach areas such as PROm. In other cases, activity will reach even area 24c, without divergence of firing rates, if the network is in a slightly more excitable state.}
+Further investigations revealed that the network activity depends on the state set for the random number generator. For Figs.~\ref{fig:fig3}-\ref{fig:fig4}, we run the simulations for a range of random seed values to obtain the expected results. However, changing their values could generate an unstable network. Especially, for the strong GBA and synchronous case, activity can become epileptic-like in some high-order regions, as shown in an example simulation in Fig.~\ref{fig:fig5}. Conversely, this dependence on initial conditions can generate instances in which the network is in a less excitable state, as a consequence activity may not reach areas such as PROm. In other cases, activity will reach even area 24c, without divergence of firing rates, if the network is in a slightly more excitable state.
 
 \begin{figure}[!ht]
  \centering
@@ -508,7 +508,7 @@ Notice that some in some early sensory regions (V1 to MT) the peak rates are an 
 \multicolumn{1}{|c|}{$\mu_{EE}$ {[}mV{]}}                & 0.0375              & 0.05                 & 0.16               & 0.25                 \\ \hline
 \multicolumn{1}{|c|}{$I_{\rm inj, E}^{\rm V1}$ {[}pA{]}} & 300                 & 126                  & 200                & 200                  \\ \hline
 \end{tabular}
-\caption{Parameters used for the spiking neuron networks in the asynchronous , and synchronous regimes , and for strong, and weak GBA for both regimes. For the parameters indicated in red, we could not find corresponding values in the original paper, therefore we had to estimate their values to guarantee a semi-quantitative matching between our reproduced and the original results. Systematic optimization is out-of-reach for such a complex large-scale spiking model.} \textcolor{blue}{Missing parameters: $\mu_{V,E}$, $\mu_{V,I}$, $\sigma_V$.}\label{tab:par_spike}
+\caption{Parameters used for the spiking neuron networks in the asynchronous , and synchronous regimes , and for strong, and weak GBA for both regimes. For the parameters indicated in red, we could not find corresponding values in the original paper, therefore we had to estimate their values to guarantee a semi-quantitative matching between our reproduced and the original results. Systematic optimization is out-of-reach for such a complex large-scale spiking model.} Missing parameters: $\mu_{V,E}$, $\mu_{V,I}$, $\sigma_V$.\label{tab:par_spike}
 \end{table}
 
 \subsection{Important information needed during replication}
@@ -527,7 +527,7 @@ In this section we list some information and parameter values that were needed t
     
     \item Considering the approximations made for the spiking network model, we found that rate instabilities could eventually be induced by specific choices of seeds for generating random numbers. And that in some conditions, the peak firing rate of some areas could reach one order of magnitude more than the ones reported in the original paper. This sensitivity is particularly evident in simulations conducted in the high synchrony, strong GBA case. As we shown in Fig.~\ref{fig:fig3} and ~\ref{fig:fig4} we were nevertheless able to replicate the results of Figures~5 and 6 from Joglekar et al. (2018). However, simulations were unstable for some random seeds.
 
-    \item \textcolor{blue}{The results obtained may depend on both the Python and Nest version used, since the RNG algorithms and C compiler used by NEST can influence the results. Since the number of threads used to run the code also changes the seeds assigned to each parallel executer, this can also impact on the results resulting in slightly different outcomes.}
+    \item The results obtained may depend on both the Python and Nest version used, since the RNG algorithms and C compiler used by NEST can influence the results. Since the number of threads used to run the code also changes the seeds assigned to each parallel executer, this can also impact on the results resulting in slightly different outcomes.
     
 \end{itemize}
 

@@ -9,7 +9,7 @@ import numpy as np
 # Argument parsing
 parser = argparse.ArgumentParser()
 parser.add_argument(
-    "PROTOCOL", help="which protocol to run", choices=[0, 1, 2, 3], type=int
+    "PROTOCOL", help="which protocol to run", choices=[0, 1, 2, 3, 4], type=int
 )
 parser.add_argument(
     "NTHREADS", help="number of threads to use", choices=range(1, 41), type=int
@@ -127,8 +127,7 @@ if p == 1:
                 params["weights"]["wei"] = 19.7
             params["weights"]["muee"] = muee_vec[i]
             t, r, max_freq = fig3.simulate(
-                lnt=lnt, simtime=simtime, dt=dt, params=params, seed=10,
-                max_cond=False
+                lnt=lnt, simtime=simtime, dt=dt, params=params, seed=10, max_cond=False
             )
             max_r_24c_f[i, uu] = max_freq[-1] - 10
             if max_r_24c_f[i, uu] > 500.0:
@@ -142,8 +141,7 @@ if p == 1:
                 params["weights"]["wei"] = 19.7
             params["weights"]["muee"] = muee_vec[i]
             t, r, max_freq = fig3.simulate(
-                lnt=lnt, simtime=simtime, dt=dt, params=params, seed=10,
-                max_cond=True
+                lnt=lnt, simtime=simtime, dt=dt, params=params, seed=10, max_cond=True
             )
             max_r_24c_t[i, uu] = max_freq[-1] - 10
             if max_r_24c_t[i, uu] > 500.0:
@@ -187,8 +185,7 @@ if p == 2:
         dt=dt,
     )
     plot_figures.fig4_5_6(
-        t_aw, i_aw, t_as, i_as, maxf_aw, maxf_as, "async", simtime,
-        "figures/fig4.png"
+        t_aw, i_aw, t_as, i_as, maxf_aw, maxf_as, "async", simtime, "figures/fig4.png"
     )
 
     ##########################################################################
@@ -217,12 +214,22 @@ if p == 2:
         dt=dt,
     )
     plot_figures.fig4_5_6(
-        t_sw, i_sw, t_ss, i_ss, maxf_sw, maxf_ss, "sync", simtime,
-        "figures/fig5.png"
+        t_sw, i_sw, t_ss, i_ss, maxf_sw, maxf_ss, "sync", simtime, "figures/fig5.png"
     )
 
+
+if p == 3:
+    import fig4_5_6
+
     ##########################################################################
-    # Strong GBA / Synchronous 
+    # Simulation parameters
+    ##########################################################################
+    simtime = 1000.0  # Simulation time (ms)
+    dt = 0.1  # Simulation resolution (ms)
+    np.random.seed(10)
+
+    ##########################################################################
+    # Strong GBA / Synchronous
     ##########################################################################
     i_ss, _, t_ss, _, maxf_ss, _, _ = fig4_5_6.simulate(
         lnt=lnt,
@@ -233,11 +240,10 @@ if p == 2:
         transient=0,
         dt=dt,
     )
-    plot_figures.plot_raster(t_ss, i_ss, None, simtime, "figures/fig6.png",
-                             save=True)
+    plot_figures.plot_raster(t_ss, i_ss, None, simtime, "figures/fig6.png", save=True)
 
 # Compute average frequencie per population in each stage
-if p == 3:
+if p == 4:
     import fig4_5_6
 
     ##########################################################################

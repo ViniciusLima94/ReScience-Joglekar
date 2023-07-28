@@ -217,9 +217,10 @@ The outcome of each protocol is detailed below:
 
 * **protocol 0:** Simulate the two population rate model and generate figure 1 from the original paper (figure 2 in the replication paper).
 * **protocol 1:** Simulate the 29 population rate model and generate figure 3 from the original paper (figure 3 in the replication paper).
-* **protocol 2:** Simulate the spiking-neuron model  for the conditions weak/strong GBA synchronous/assyinchronous and generate figures 5  and 6 from the original paper (figure 4 and 5 in the replication paper). It generate also figure 6 from the replication paper.
-* **protocol 3:** Simulate the spiking-neuron model in the absence of external stimuli applied to the V1 population to assure that the network average frequency rate is in the range specified in the original paper. 
+* **protocol 2:** Simulate the spiking-neuron model  for the conditions weak/strong GBA synchronous/assyinchronous and generate figures 5  and 6 from the original paper (figure 4 and 5 in the replication paper).
+* **protocol 3:** Simulate the spiking-neuron model  for the condition synchronous/assyinchronous. It generate also figure 6 from the replication paper.
+* **protocol 4:** Simulate the spiking-neuron model in the absence of external stimuli applied to the V1 population to assure that the network average frequency rate is in the range specified in the original paper. 
 
-In the machine used to run the protocols we set **N_THREADS** as 1 for protocol 0 and 1 and as 20 to the remaining protocols.
+In the machine used to run the protocols we set **N_THREADS** as 1 for protocol 0 and 1, 20  for protocol 2 and 4, and 4 for protocol 3.
 
-**WARNING:** About 10GB of RAM is used for protocols 2 and 3 (using 20 threads).
+**WARNING:** About 10GB of RAM is used for protocols 2 and 4 (using 20 threads).
