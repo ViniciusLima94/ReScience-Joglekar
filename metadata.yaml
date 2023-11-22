@@ -5,83 +5,84 @@
 #  - For a successful replication, it shoudl be prefixed with "[Re]"
 #  - For a failed replication, it should be prefixed with "[¬Re]"
 #  - For other article types, no instruction (but please, not too long)
-title: "ReScience (R)evolution"
+title: [Re] Inter-areal Balanced Amplification Enhances Signal Propagation in a Large-Scale Circuit Model of the Primate Cortex
 
 # List of authors with name, orcid number, email and affiliation
 # Affiliation "*" means contact author
 authors:
-  - name: Konrad Hinsen
-    orcid: 0000-0003-0330-9428
-    email: konrad.hinsen@cnrs.fr
-    affiliations: 1,2
+  - name: Vinicius Lima 
+    orcid: 0000-0001-7115-9041
+    email: vinicius.lima.cordeiro@gmail.com 
+    affiliations: 1,2,*
+
+  - name: Renan O. Shimoura 
+    orcid: 0000-0002-6580-5999
+    email: renanshimoura@gmail.com
+    affiliations: 3,2 
+
+  - name: Nilton L. Kamiji
+    orcid: 0000-0001-5006-6612
+    email: nilton.kamiji@gmail.com 
+    affiliations: 3 
+
+  - name: Demian Battaglia
+    orcid: 0000-0003-2021-7920
+    email: demian.battaglia@gmail.com  
+    affiliations: 1,4 
+
+  - name: Antonio C. Roque
+    orcid: 0000-0003-2021-7920
+    email: demian.battaglia@gmail.com  
+    affiliations: 1,4 
     
-  - name: Nicolas P. Rougier
-    orcid: 0000-0002-6972-589X
-    email: Nicolas.Rougier@inria.fr
-    affiliations: 3,4,5,*      # * is for contact author
 
 # List of affiliations with code (corresponding to author affiliations), name
 # and address. You can also use these affiliations to add text such as "Equal
 # contributions" as name (with no address).
 affiliations:
   - code:    1
-    name:    Centre de Biophysique Moléculaire, CNRS UPR4301
-    address: Orléans, France
+    name:    Aix-Marseille University, Institute for Systems Neuroscience (INS UMR 1106, Inserm)
+    address: Marseille, France
     
   - code:    2
-    name:    Synchrotron SOLEIL, Division Expériences
+    name:    These authors contributed equally to this work
     address: Gif sur Yvette, France
     
   - code:    3
-    name:    INRIA Bordeaux Sud-Ouest
-    address: Bordeaux, France
+    name:    Department of Physics, School of Philosophy, Sciences and Letters of Ribeirão Preto (FFCLRP), University of São Paulo,
+    address: Ribeirao Preto, Brazil
     
   - code:    4
-    name:    LaBRI, Université de Bordeaux, Institut Polytechnique de Bordeaux,
-             Centre National de la Recherche Scientifique, UMR 5800
-    address: Talence, France
-    
-  - code:    5
-    name:    Institut des Maladies Neurodégénératives, Université  de Bordeaux,
-             Centre National de la Recherche Scientifique, UMR 5293
-    address: Bordeaux, France
+    name:    University of Strasbourg Institute for Advanced Studies (USIAS)
+    address: Strasbourg, France
 
 
 # List of keywords (adding the programming language might be a good idea)
-keywords: rescience c, rescience x
+keywords: Computational Neuroscience, Python, NEST 
 
 # Code URL and DOI/SWH (url is mandatory for replication, doi after acceptance)
 # You can get a DOI for your code from Zenodo, or an SWH identifier from
 # Software Heritage.
 #   see https://guides.github.com/activities/citable-code/
 code:
-  - url: https://github.com/rescience-c/template
+  - url: https://github.com/ViniciusLima94/ReScience-Joglekar/tree/master/code 
   - doi: 
   - swh: 
 
 # Data URL and DOI (optional if no data)
 data:
-  - url:
+  - url: https://github.com/ViniciusLima94/ReScience-Joglekar/tree/master/code/interareal
   - doi:
 
 # Information about the original article that has been replicated
 replication:
- - cite: # Full textual citation
+ - cite: Joglekar, M. R., Mejias, J. F., Yang, G. R., & Wang, X. J. (2018). Inter-areal balanced amplification enhances signal propagation in a large-scale circuit model of the primate cortex. Neuron, 98(1), 222-234.
  - bib:  # Bibtex key (if any) in your bibliography file
  - url:  # URL to the PDF, try to link to a non-paywall version
  - doi:  # Regular digital object identifier
 
 # Don't forget to surround abstract with double quotes
-abstract: "Three years have passed since ReScience published its first article
-           and since September 2015, things have been going steadily. We're
-           still alive, independent and without a budget. In the meantime, we
-           have published around 20 articles (mostly in computational
-           neuroscience & computational ecology) and the initial has grown
-           from around 10 to roughly 100 members (editors and reviewers), we
-           have advertised ReScience at several conferences worldwide, gave
-           some interviews and we published an article introducing ReScience in
-           PeerJ. Based on our experience at managing the journal during these
-           three years, we think the time is ripe for proposing some changes."
+abstract: "Understanding reliable signal transmission repre-sents a notable challenge for cortical systems, whichdisplay a wide range of weights of feedforward andfeedback connections among heterogeneous areas.We re-examine the question of signal transmissionacross the cortex in a network model based onmesoscopic directed and weighted inter-areal con-nectivity data of the macaque cortex. Our findingsreveal that, in contrast to purely feedforward propa-gation models, the presence of long-range excitatoryfeedback projections could compromise stablesignal propagation. Using population rate modelsas well as a spiking network model, we find thateffective signal propagation can be accomplishedby balanced amplification across cortical areas whileensuring dynamical stability. Moreover, the activa-tion of prefrontal cortex in our model requires theinput strength to exceed a threshold, which isconsistent with the ignition model of conscious pro-cessing. These findings demonstrate our model asan anatomically realistic platform for investigationsof global primate cortex dynamics."
 
 # Bibliography file (yours)
 bibliography: bibliography.bib
@@ -91,14 +92,14 @@ bibliography: bibliography.bib
 #  * Editorial
 #  * Letter
 #  * Replication
-type: Editorial
+type: Replication
 
 # Scientific domain of the article (e.g. Computational Neuroscience)
 #  (one domain only & try to be not overly specific)
-domain: 
+domain: Computational Neuroscience
 
 # Coding language (main one only if several)
-language:
+language: Python
 
   
 # To be filled by the author(s) after acceptance
@@ -106,22 +107,22 @@ language:
 
 # For example, the URL of the GitHub issue where review actually occured
 review: 
-  - url: 
+  - url: https://github.com/ReScience/submissions/issues/72
 
 contributors:
-  - name:
+  - name: Benoit Giraud
     orcid: 
     role: editor
-  - name:
-    orcid:
+  - name: Marcel Stimberg
+    orcid: 0000-0002-2648-4790
     role: reviewer
-  - name:
+  - name: Stephan Grein 
     orcid:
     role: reviewer
 
 # This information will be provided by the editor
 dates:
-  - received:  November 1, 2018
+  - received:  May 5, 2023
   - accepted:
   - published: 
 
